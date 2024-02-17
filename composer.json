@@ -1,0 +1,25 @@
+{
+    "name": "lslcoded/think-qrcode",
+    "description": "qrcode for thinkphp5",
+    "homepage": "https://github.com/lslcoded/think-qrcode",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "version": "2.0",
+    "authors": [
+        {
+            "name": "lslcoded",
+            "email": "lslcoding@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/lslcoded/think-qrcode/issues"
+    },
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "lslcoded\\qrcode\\": "src/"
+        }
+    }
+}
