@@ -1,10 +1,10 @@
 {
-    "name": "lslcoded/think-qrcode",
-    "description": "qrcode for thinkphp5",
-    "homepage": "https://github.com/lslcoded/think-qrcode",
+    "name": "lslcoded/rocketmq-http",
+    "description": "rocketmq for thinkphp6",
+    "homepage": "https://github.com/lslcoded/rocketmq-http",
     "license": "MIT",
     "minimum-stability": "stable",
-    "version": "2.0",
+    "version": "1.0",
     "authors": [
         {
             "name": "lslcoded",
@@ -12,14 +12,14 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/lslcoded/think-qrcode/issues"
+        "issues": "https://github.com/lslcoded/rocketmq-http/issues"
     },
     "require": {
         "php": ">=5.4.0"
     },
     "autoload": {
         "psr-4": {
-            "lslcoded\\qrcode\\": "src/"
+            "lslcoded\\rocketmq-http\\": "src/"
         }
     }
 }
