@@ -6,13 +6,14 @@
  * Time: 11:36
  */
 
-namespace Rocketmq;
+namespace lslcoded\Rocketmq;
 
 use MQ\Exception\AckMessageException;
 use MQ\Exception\MessageNotExistException;
 use MQ\Model\TopicMessage;
 use MQ\MQClient;
 use Think\Exception;
+use think\Log;
 
 class MqMessage extends Base
 {
@@ -22,45 +23,35 @@ class MqMessage extends Base
      * @param $message
      * @param int $delayTimeInMillis
      */
-    public function sendMessage($topic,$instanceId = NULL,$message,$delayTimeInMillis = 0){
-        $data = [
+    public  function sendMessage($topic,$instanceId ,$message,$delayTimeInMillis = 0){
+        $log = [
             'topic' => $topic,
             'message' => $message,
             'delayTimeInMillis' => $delayTimeInMillis,
             'requestId' => REQUEST_ID
         ];
-
         try{
             $this->createProducer($topic,$instanceId);
             // 消息内容
             $publishMessage = new TopicMessage($message);
             // 设置属性
-            $publishMessage->putProperty("RequestId", REQUEST_ID);
+            $publishMessage->putProperty("requestId", REQUEST_ID);
             // 设置消息KEY
             $publishMessage->setMessageKey(REQUEST_ID);
-            if ($delayTimeInMillis>0) {
-                // 定时消息,精确到毫秒，当前时间往后的毫秒时间戳
+            // 定时消息,精确到毫秒，当前时间往后的毫秒时间戳
+            if ($delayTimeInMillis && $delayTimeInMillis>0) {
                 $publishMessage->setStartDeliverTime($delayTimeInMillis);
             }
-
             $this->producer->publishMessage($publishMessage);
 
-            write_info_log(
-                self::DEBUG_CHANNEL,
-                __FILE__,
-                __LINE__,
-                'Message has send',
-                $data
-            );
+            $log['info'] = 'Message has send';
+            \think\facade\Log::info(json_encode($log));
         }catch (Exception $exception){
-
-            write_err_log(
-                self::DEBUG_CHANNEL,
-                $exception->getFile(),
-                $exception->getLine(),
-                $exception->getMessage(),
-                $data
-            );
+            $log['info'] = 'Message send error';
+            $log['errorFile'] = $exception->getFile();
+            $log['errorLine'] = $exception->getLine();
+            $log['errorMessage'] = $exception->getMessage();
+            \think\facade\Log::error(json_encode($log));
         }
     }
 
