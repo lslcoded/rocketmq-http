@@ -15,7 +15,8 @@
         "issues": "https://github.com/lslcoded/rocketmq-http/issues"
     },
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "aliyunmq/mq-http-sdk": ">=1.0.4"
     },
     "autoload": {
         "psr-4": {
