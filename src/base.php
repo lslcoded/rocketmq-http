@@ -33,6 +33,7 @@ class base
             config('mq.rocketmq.access_key'),
             // SecretKey 阿里云身份验证，在阿里云服务器管理控制台创建
             config('mq.rocketmq.secert_key'),
+            NULL
         );
     }
 
