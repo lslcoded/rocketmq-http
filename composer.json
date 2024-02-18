@@ -4,7 +4,7 @@
     "homepage": "https://github.com/lslcoded/rocketmq-http",
     "license": "MIT",
     "minimum-stability": "stable",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "authors": [
         {
             "name": "lslcoded",
@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "lslcoded/mq-http-sdk": ">=1.0.4"
+        "lslcoded/mq-http-sdk": ">=1.0.5"
     },
     "autoload": {
         "psr-4": {
