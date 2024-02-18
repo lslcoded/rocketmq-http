@@ -6,7 +6,7 @@
  * Time: 11:36
  */
 
-namespace lslcoded\Rocketmq;
+namespace lslcoded\rocketmq;
 
 use MQ\Exception\AckMessageException;
 use MQ\Exception\MessageNotExistException;
@@ -15,7 +15,7 @@ use MQ\MQClient;
 use Think\Exception;
 use think\Log;
 
-class MqMessage extends Base
+class message extends Base
 {
     /**
      * @param $topic

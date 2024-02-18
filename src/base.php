@@ -6,7 +6,7 @@
  * Time: 11:36
  */
 
-namespace lslcoded\Rocketmq;
+namespace lslcoded\rocketmq;
 
 use MQ\Exception\AckMessageException;
 use MQ\Exception\MessageNotExistException;
@@ -17,7 +17,7 @@ use MQ\MQClient;
  * Class Base
  * @package Rocketmq
  */
-class Base
+class base
 {
     private $client;
 
