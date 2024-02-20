@@ -16,7 +16,7 @@ use Think\Exception;
 use think\facade\Log;
 
 
-class message extends Base
+class message extends base
 {
     /**
      * @param $topic
