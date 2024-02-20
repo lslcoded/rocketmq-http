@@ -1,4 +1,5 @@
 <?php
+declare (strict_types=1);
 /**
  * Created by PhpStorm.
  * User: lsl
@@ -67,7 +68,7 @@ class base
      * @param null $messageTag
      * @return $this
      */
-    public function createConsumer($topic,$groupId,$instanceId,$messageTag){
+    public function createConsumer($topic,$groupId,$instanceId,$messageTag = NULL){
         !$instanceId && $instanceId =  config('mq.rocketmq.instance_id');
         $this->consumer = $this->client->getConsumer($instanceId, $topic, $groupId,$messageTag);
         return $this;
